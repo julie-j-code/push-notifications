@@ -1,4 +1,8 @@
-self.addEventListener('push', () => {
+self.addEventListener('install', (event)=>{
+  self.skipWaiting();
+})
+
+self.addEventListener('push', (event) => {
   var options = {
     body: "Ceci est une notification générée par un push",
     vibrate: [100, 50, 100],
@@ -17,9 +21,9 @@ self.addEventListener('push', () => {
       { action: 'close', title: 'Close', icon: 'images/xmark.png' }
     ]
   };
+  event.waitUntil(self.registration.showNotification('Hello world!', options) )
 
-
-  self.registration.showNotification('Hello world!', options);
+  
 });
 
 
