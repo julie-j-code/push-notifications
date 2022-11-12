@@ -4,8 +4,19 @@ self.addEventListener('push', () => {
     vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),
-      primaryKeay: '2'
-    }};
+      primaryKey: '2'
+    },
+  
+    actions: [
+
+      {
+        action: 'explore',
+        title: 'Explore this new world',
+        icon: 'images/chekmark.png'
+      },
+      { action: 'close', title: 'Close', icon: 'images/xmark.png' }
+    ]
+  };
 
 
   self.registration.showNotification('Hello world!', options);
